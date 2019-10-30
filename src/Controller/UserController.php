@@ -10,7 +10,10 @@ class UserController extends AbstractController
         $jsonObject = json_decode($table, true);
         var_dump($jsonObject);
         error_log(print_r($jsonObject, true));
-
+        //var_dump($_POST);
+        error_log(print_r($_POST, true));
+        var_dump($_POST);
+        return $_POST['username'];
         //die();
     }
 }
