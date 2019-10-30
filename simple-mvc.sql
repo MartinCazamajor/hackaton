@@ -1,3 +1,4 @@
+DROP DATABASE hackaton_BNB;
 CREATE DATABASE hackaton_BNB;
 
 USE hackaton_BNB;
