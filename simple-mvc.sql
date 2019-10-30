@@ -40,6 +40,7 @@ CREATE TABLE experience (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
     description TEXT NOT NULL,
+    available VARCHAR(10) NOT NULL,
     img TEXT NOT NULL,
     user_id INT NOT NULL,
     FOREIGN KEY (user_id) REFERENCES user(id)
