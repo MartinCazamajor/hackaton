@@ -18,7 +18,6 @@ class HumanController extends AbstractController
         $userId = 5; //needs to be the json_decode from the front
 
         $prefUser = $preferenceManager->selectNameForUserId($userId);
-        var_dump($prefUser);
 
         foreach ($prefUser as $pref) {
             $id = $preferenceManager->selectOneIdByName($pref['name']);
@@ -28,7 +27,6 @@ class HumanController extends AbstractController
                 $keyCount++;
             }
         }
-        var_dump($views);
         return json_encode($views);
     }
 }
