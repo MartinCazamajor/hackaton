@@ -9,7 +9,7 @@ class UserController extends AbstractController
     public function signIn()
     {
         $userManager = new UserManager();
-        if (!empty($userManager->selectOneByName($_POST['username']))) {
+        if (empty($userManager->selectOneByName($_POST['username']))) {
             $userManager->add($_POST);
             $checkName = true;
         } else {
