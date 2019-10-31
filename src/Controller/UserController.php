@@ -19,4 +19,9 @@ class UserController extends AbstractController
         return $userManager->add($_POST);
         //die();
     }
+
+    public function logIn()
+    {
+        return ('logIn');
+    }
 }

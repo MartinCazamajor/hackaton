@@ -29,4 +29,9 @@ class HumanController extends AbstractController
         }
         return json_encode($views);
     }
+
+    public function choose()
+    {
+        return ('choose');
+    }
 }
