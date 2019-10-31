@@ -36,6 +36,13 @@ class ExperienceManager extends AbstractManager
         return 'ok';
     }
 
+    public function viewAllExperience()
+    {
+        $query = "SELECT e.title, e.description, e.img 
+            FROM experience e";
+        return $this->pdo->query($query)->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
     public function viewAllExperiencebyId(int $id)
     {
         $query = "SELECT e.title, e.description, e.img 

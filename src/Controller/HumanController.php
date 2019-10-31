@@ -5,7 +5,6 @@ namespace App\Controller;
 
 use App\Model\ExperienceManager;
 use App\Model\PreferenceManager;
-use App\Model\StatusManager;
 
 class HumanController extends AbstractController
 {
@@ -49,5 +48,21 @@ class HumanController extends AbstractController
         $status = $statusManager->selectNameForUserId($id);
         header("Access-Control-Allow-Origin: *");
         return json_encode($status);
+    }
+
+    public function add()
+    {
+        $addManager = new PreferenceManager();
+        $add = $addManager->addPreference();
+        header("Access-Control-Allow-Origin: *");
+        return json_encode($add);
+    }
+
+    public function viewAll()
+    {
+        $viewAllManager = new ExperienceManager();
+        $viewAll = $viewAllManager->viewAllExperience();
+        header("Access-Control-Allow-Origin: *");
+        return json_encode($viewAll);
     }
 }
