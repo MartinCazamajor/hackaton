@@ -16,7 +16,7 @@ class HumanController extends AbstractController
         $views = null;
         $keyCount = 0;
 
-        $userId = $_POST['id'];
+        $userId = $_POST['user_id'];
 
         $prefUser = $preferenceManager->selectNameForUserId($userId);
 
@@ -53,14 +53,20 @@ class HumanController extends AbstractController
 
     public function add()
     {
+
         $userPrefManager = new UserPreferenceManager();
         $preferenceManager = new PreferenceManager();
 
         $userId = $_POST['user_id'];
         unset($_POST['user_id']);
 
+        $userPref = $userPrefManager->selectByUserId($userId);
+        foreach ($userPref as $key => $prefArray) {
+            $userPref[$key] = $prefArray['preference_id'];
+        }
+
         foreach ($_POST as $idPreference) {
-            if (in_array($idPreference, $userPrefManager->selectByUserId($userId))) {
+            if (!in_array($idPreference, $userPref)) {
                 $userPrefManager->addPreference($userId, $idPreference);
             }
         }
@@ -68,13 +74,5 @@ class HumanController extends AbstractController
         $preferenceUser = $preferenceManager->selectNameForUserId($userId);
         header("Access-Control-Allow-Origin: *");
         return json_encode($preferenceUser);
-    }
-
-    public function viewAll()
-    {
-        $viewAllManager = new ExperienceManager();
-        $viewAll = $viewAllManager->viewAllExperience();
-        header("Access-Control-Allow-Origin: *");
-        return json_encode($viewAll);
     }
 }

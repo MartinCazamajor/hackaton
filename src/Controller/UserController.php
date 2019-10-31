@@ -9,14 +9,14 @@ class UserController extends AbstractController
     public function signIn()
     {
         $userManager = new UserManager();
+        header("Access-Control-Allow-Origin: *");
         if (empty($userManager->selectOneByName($_POST['username']))) {
             $userManager->add($_POST);
-            $checkName = true;
         } else {
-            $checkName = false;
+            return json_encode(false);
         }
-        header("Access-Control-Allow-Origin: *");
-        return json_encode($checkName);
+        $user = $userManager->selectOneByName($_POST['username']);
+        return json_encode($user);
     }
 
     public function logIn()
