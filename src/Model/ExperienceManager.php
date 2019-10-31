@@ -44,4 +44,20 @@ class ExperienceManager extends AbstractManager
             WHERE user_id = $id";
         return $this->pdo->query($query)->fetchAll(\PDO::FETCH_ASSOC);
     }
+
+    public function viewOneExperiencebyId(int $id)
+    {
+        $query = "SELECT e.title, e.description, e.img
+            FROM experience e 
+            WHERE e.id = $id";
+        return $this->pdo->query($query)->fetch(\PDO::FETCH_ASSOC);
+    }
+
+    public function changeAvailable($id)
+    {
+        $query = "UPDATE experience e SET available = :no WHERE e.id = $id";
+        $statement = $this->pdo->prepare($query);
+        $statement->bindValue(':no', 'no', \PDO::PARAM_STR);
+        $statement->execute();
+    }
 }

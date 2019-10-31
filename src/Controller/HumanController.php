@@ -15,7 +15,7 @@ class HumanController extends AbstractController
         $views = null;
         $keyCount = 0;
 
-        $userId = 5; //needs to be the json_decode from the front
+        $userId = $_POST['id'];
 
         $prefUser = $preferenceManager->selectNameForUserId($userId);
 
@@ -31,8 +31,12 @@ class HumanController extends AbstractController
         return json_encode($views);
     }
 
-    public function choose()
+    public function choose($id)
     {
-        return ('choose');
+        $experienceManager = new ExperienceManager();
+        $experienceManager->changeAvailable($id);
+        $viewOneExperience = $experienceManager->viewOneExperiencebyId($id);
+        header("Access-Control-Allow-Origin: *");
+        return json_encode($viewOneExperience);
     }
 }
