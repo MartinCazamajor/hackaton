@@ -27,4 +27,14 @@ class PreferenceManager extends AbstractManager
             WHERE up.user_id = $id";
         return $this->pdo->query($query)->fetchAll(\PDO::FETCH_ASSOC);
     }
+
+    public function showStatus($id)
+    {
+        $query = "SELECT p.name 
+        FROM user_preference up 
+        JOIN preference p ON p.id= up.preference_id
+        JOIN user u ON u.id = up.user_id
+        WHERE up.user_id = $id";
+        return $this->pdo->query($query)->fetchAll(\PDO::FETCH_ASSOC);
+    }
 }
