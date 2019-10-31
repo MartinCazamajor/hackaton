@@ -27,6 +27,7 @@ class HumanController extends AbstractController
                 $keyCount++;
             }
         }
+        header("Access-Control-Allow-Origin: *");
         return json_encode($views);
     }
 }
