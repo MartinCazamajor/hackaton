@@ -21,6 +21,16 @@ class UserController extends AbstractController
 
     public function logIn()
     {
-        return ('logIn');
+        $userManager = new UserManager();
+        $user = $userManager->selectOneByName($_POST['username']);
+
+        header("Access-Control-Allow-Origin: *");
+        if (empty($user)) {
+            return json_encode('username incorrect');
+        } elseif ($user['pass'] != $_POST['pass']) {
+            return json_encode('password incorrect');
+        } else {
+            return json_encode($user);
+        }
     }
 }

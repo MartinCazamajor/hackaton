@@ -24,10 +24,10 @@ class UserManager extends AbstractManager
     public function selectOneByName(string $username)
     {
         // prepared request
-        $statement = $this->pdo->prepare("SELECT * FROM $this->table WHERE username=':username'");
-        $statement->bindValue(':username', $username, \PDO::PARAM_INT);
+        $statement = $this->pdo->prepare("SELECT * FROM ". self::TABLE . " WHERE username=:username");
+        $statement->bindValue(':username', $username, \PDO::PARAM_STR);
         $statement->execute();
 
-        return $statement->fetchAll();
+        return $statement->fetch();
     }
 }
