@@ -53,7 +53,6 @@ class HumanController extends AbstractController
 
     public function add()
     {
-
         $userPrefManager = new UserPreferenceManager();
         $preferenceManager = new PreferenceManager();
 
