@@ -42,9 +42,9 @@ class HumanController extends AbstractController
         return json_encode($viewOneExperience);
     }
 
-    public function status()
+    public function status($id)
     {
-        $id = $_POST['id'];
+        //$id = $_POST['id'];
         $statusManager = new PreferenceManager();
         $status = $statusManager->selectNameForUserId($id);
         header("Access-Control-Allow-Origin: *");
