@@ -53,10 +53,14 @@ class HumanController extends AbstractController
     public function add()
     {
         $preferenceManager = new PreferenceManager();
-        $add = $preferenceManager->addPreference($_POST);
-
+        $userId = $_POST['user_id'];
+        unset($_POST['user_id']);
+        foreach ($_POST as $idPreference) {
+            $preferenceManager->addPreference($userId, $idPreference);
+        }
         header("Access-Control-Allow-Origin: *");
-        return json_encode($add);
+        $preferenceUser = $preferenceManager->selectNameForUserId($userId);
+        return json_encode($preferenceUser);
     }
 
     public function viewAll()
