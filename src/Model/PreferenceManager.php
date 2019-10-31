@@ -37,11 +37,4 @@ class PreferenceManager extends AbstractManager
         WHERE up.user_id = $id";
         return $this->pdo->query($query)->fetchAll(\PDO::FETCH_ASSOC);
     }
-
-    public function addPreference($userId, $preferenceId)
-    {
-        $query = "INSERT INTO user_preference (user_id,preference_id)
-                    VALUES (" . $userId ."," . $preferenceId .")";
-        return $this->pdo->query($query);
-    }
 }
