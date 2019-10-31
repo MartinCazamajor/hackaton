@@ -31,8 +31,12 @@ class HumanController extends AbstractController
         return json_encode($views);
     }
 
-    public function choose()
+    public function choose($id)
     {
-        return ('choose');
+        $experienceManager = new ExperienceManager();
+        $experienceManager->changeAvailable($id);
+        $viewOneExperience = $experienceManager->viewOneExperiencebyId($id);
+        header("Access-Control-Allow-Origin: *");
+        return json_encode($viewOneExperience);
     }
 }
