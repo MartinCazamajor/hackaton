@@ -92,22 +92,44 @@ INSERT INTO type (name) VALUES
    ); 
 
  INSERT INTO user (username,pass,type_id) VALUES
-   ('vlad','0000',2),
+    ('axel','0000',1),
+    ('vlad','0000',2),
    ('hairyWolf','0000',3),
+   ('zombzomb','0000',4),
    ('ghosty','0000',5),
-   ('Jason','0000',6);
+   ('jason','0000',6),
+   ('ringgirl','0000',7),
+   ('nessy','0000',8),
+   ('zloug','0000',9),
+   ('pennywise','0000',10),
+   ('chucky','0000',11
+   );
    
   INSERT INTO experience (title,description,available,img,user_id) VALUES
-   ('Carpate','Great Castlec with view','yes','https://freepngimg.com/thumb/castle/9-2-castle-png-picture.png(894 ko)
+   ('Carpate','Great Castle with view','yes','https://freepngimg.com/thumb/castle/9-2-castle-png-picture.png(894 ko)
 https://freepngimg.com/thumb/castle/9-2-castle-png-picture.png
-',1),
-   ('Forest','Nice Trees','yes','https://images.pexels.com/photos/302804/pexels-photo-302804.jpeg',2),
+',2),
+   ('Forest','Nice Trees','yes','https://images.pexels.com/photos/302804/pexels-photo-302804.jpeg',3),
 ('Cellar','Spacy cellar','yes','https://static.vinepair.com/wp-content/uploads/2016/02/Wine-Cellar-header.jpg(91 ko)
 https://static.vinepair.com/wp-content/uploads/2016/02/Wine-Cellar-header.jpg
-',3),
+',4),
    ('City','lonely city','yes','https://upload.wikimedia.org/wikipedia/commons/3/3c/Cityoflondon2019june.jpg(268 ko)
 https://upload.wikimedia.org/wikipedia/commons/3/3c/Cityoflondon2019june.jpg
-',4
+',5),
+   ('Cabin','viewtiful cabin','yes','https://odis.homeaway.com/odis/listing/badb5f7a-40bb-4b18-ac49-ea217f79cb2b.f6.jpg
+',6),
+   ('Appartement','Appartement with TV','yes','http://marceauimmo.staticlbi.com/original/images/biens/
+1/78793b99ed3060a58b833ea04b493953/21243765f7f2f834f1eda0c1a755a87d.jpg
+',7),
+   ('Scotland','Lochness','yes','http://aroundlochness.co.uk/images/gallery/pic1.jpg
+',8),
+   ('Space travel','big space station','yes','https://cdn.mos.cms.futurecdn.net/Q8U3LcsBLsXX9mYksBx5eV.jpg
+',9),
+   ('Circus trip','circus with great music','yes','https://www.dailyherald.com/storyimage/da/20190701/news/190709897/
+AR/0/AR-190709897.jpg
+',10),
+   ('Room','sweet little room with toy','yes','http://toyreport.org/wp-content/uploads/2008/08/2008toyroom.jpg
+',11
 );
    
    
