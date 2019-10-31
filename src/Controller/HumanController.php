@@ -52,8 +52,9 @@ class HumanController extends AbstractController
 
     public function add()
     {
-        $addManager = new PreferenceManager();
-        $add = $addManager->addPreference();
+        $preferenceManager = new PreferenceManager();
+        $add = $preferenceManager->addPreference($_POST);
+
         header("Access-Control-Allow-Origin: *");
         return json_encode($add);
     }
