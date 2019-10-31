@@ -15,8 +15,9 @@ class MonsterController extends AbstractController
 
     public function view()
     {
-        $view = new ExperienceManager();
-        var_dump($view->viewAllExperiencebyId(2));
-        //$view->viewAllExperiencebyId($_POST['user_id']);
+        $experienceManager = new ExperienceManager();
+        $viewExperience = $experienceManager->viewAllExperiencebyId($_POST['id']);
+        header("Access-Control-Allow-Origin: *");
+        return json_encode($viewExperience);
     }
 }
