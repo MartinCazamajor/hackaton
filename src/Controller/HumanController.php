@@ -5,6 +5,7 @@ namespace App\Controller;
 
 use App\Model\ExperienceManager;
 use App\Model\PreferenceManager;
+use App\Model\UserPreferenceManager;
 
 class HumanController extends AbstractController
 {
@@ -52,10 +53,21 @@ class HumanController extends AbstractController
 
     public function add()
     {
-        $addManager = new PreferenceManager();
-        $add = $addManager->addPreference();
+        $userPrefManager = new UserPreferenceManager();
+        $preferenceManager = new PreferenceManager();
+
+        $userId = $_POST['user_id'];
+        unset($_POST['user_id']);
+
+        foreach ($_POST as $idPreference) {
+            if (in_array($idPreference, $userPrefManager->selectByUserId($userId))) {
+                $userPrefManager->addPreference($userId, $idPreference);
+            }
+        }
+
+        $preferenceUser = $preferenceManager->selectNameForUserId($userId);
         header("Access-Control-Allow-Origin: *");
-        return json_encode($add);
+        return json_encode($preferenceUser);
     }
 
     public function viewAll()
