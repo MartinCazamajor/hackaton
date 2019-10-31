@@ -19,6 +19,15 @@ class UserManager extends AbstractManager
         $statement->bindValue(':pass', $post['pass'], \PDO::PARAM_STR);
         $statement->bindValue(':type_id', $post['gender'], \PDO::PARAM_INT);
         $statement->execute();
-        return 'ok';
+    }
+
+    public function selectOneByName(string $username)
+    {
+        // prepared request
+        $statement = $this->pdo->prepare("SELECT * FROM $this->table WHERE username=':username'");
+        $statement->bindValue(':username', $username, \PDO::PARAM_INT);
+        $statement->execute();
+
+        return $statement->fetchAll();
     }
 }

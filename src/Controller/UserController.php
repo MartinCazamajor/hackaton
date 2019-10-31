@@ -8,15 +8,16 @@ class UserController extends AbstractController
 {
     public function signIn()
     {
-        $table = file_get_contents('php://input');
-        $jsonObject = json_decode($table, true);
-        var_dump($jsonObject);
-        error_log(print_r($jsonObject, true));
-        //var_dump($_POST);
-        error_log(print_r($_POST, true));
-        var_dump($_POST);
         $userManager = new UserManager();
-        return $userManager->add($_POST);
-        //die();
+        $_POST['username'] ='vlad';
+        $_POST['pass']='truc';
+        $_POST['gender'] = 2;
+        if (!empty($userManager->selectOneByName($_POST['username']))) {
+            $userManager->add($_POST);
+            $checkName = ['checkName' => true];
+        } else {
+            $checkName = ['checkName' => false];
+        }
+        return json_encode($checkName);
     }
 }
