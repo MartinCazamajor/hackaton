@@ -18,4 +18,9 @@ class UserController extends AbstractController
         header("Access-Control-Allow-Origin: *");
         return json_encode($checkName);
     }
+
+    public function logIn()
+    {
+        return ('logIn');
+    }
 }

@@ -30,4 +30,9 @@ class HumanController extends AbstractController
         header("Access-Control-Allow-Origin: *");
         return json_encode($views);
     }
+
+    public function choose()
+    {
+        return ('choose');
+    }
 }
