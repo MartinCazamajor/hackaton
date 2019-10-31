@@ -15,7 +15,7 @@ class HumanController extends AbstractController
         $views = null;
         $keyCount = 0;
 
-        $userId = 5; //needs to be the json_decode from the front
+        $userId = $_POST['id'];
 
         $prefUser = $preferenceManager->selectNameForUserId($userId);
 
